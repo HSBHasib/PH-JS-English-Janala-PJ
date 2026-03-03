@@ -101,18 +101,17 @@
             </div>
         </section>
 
-        <!-- Open the modal using ID.showModal() method -->
-        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
-        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle rounded-xl">
         <div class="modal-box">
-            <h3 class="text-lg font-bold">Hello!</h3>
-            <p class="py-4">Press ESC key or click the button below to close</p>
-            <div class="modal-action">
-            <form method="dialog">
-                <!-- if there is a button in form, it will close the modal -->
-                <button class="btn">Close</button>
-            </form>
+
+            <div id="modal-dets" class="space-y-4 border-[1.5px] border-[#00BCFF20] p-4 rounded-xl"></div>
+            
+            <div class="modal-action justify-start mt-3">
+                <form method="dialog">
+                    <button class="btn btn-primary rounded-md">Complete Learning</button>
+                </form>
             </div>
+
         </div>
         </dialog>
 
