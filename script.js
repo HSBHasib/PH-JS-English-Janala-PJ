@@ -5,10 +5,22 @@ let loadLessons = () => {
 };
 
 let loadLevelWord = (id) => {
-    const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(`https://openapi.programming-hero.com/api/level/${id}`)
     .then(res => res.json())
-    .then(dets => displayVocab(dets.data));
+    .then((dets) => {
+
+        const allLessonBtn = document.querySelectorAll(".lesson-btn")
+        allLessonBtn.forEach(elem => {
+            elem.classList.remove('active');
+        });
+
+        const clickBtn = document.getElementById(`lesson-btn-${id}`);
+        clickBtn.classList.add("active");
+        
+        
+
+        displayVocab(dets.data);
+    });
 };
 
 let displayVocab = (words) => {
@@ -24,6 +36,7 @@ let displayVocab = (words) => {
                 <h2 class="text-2xl font-semibold">নেক্সট Lesson এ যান</h2>
                 ` 
             wordContainer.append(div);
+        return;
     }    
             
     for(let word of words) {
@@ -54,7 +67,7 @@ let displayLessons = (lessons) => {
     for(let lesson of lessons) {
         const lessonbtn = document.createElement('div');
         lessonbtn.innerHTML = `
-        <button onclick="loadLevelWord(${lesson.level_no})" class="btn btn-outline btn-primary btn-sm"><i class="fa-solid fa-book-open"></i> Lesson -${lesson.level_no}</button>
+        <button id="lesson-btn-${lesson.level_no}" onclick="loadLevelWord(${lesson.level_no})" class="btn btn-outline btn-primary btn-sm lesson-btn"><i class="fa-solid fa-book-open"></i> Lesson -${lesson.level_no}</button>
         `;
         lessonsDiv.append(lessonbtn);
     }
