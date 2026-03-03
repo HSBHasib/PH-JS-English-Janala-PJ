@@ -25,10 +25,44 @@
 
     <!-- Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <body>
+    <!-- Header Section -->
+    <header>
+        <!-- Navbar Section -->
+        <nav class="navbar bg-base-100 shadow-sm 
+                    md:px-10 bg-[#EDF6FF]">   
+            <div class="navbar-start ">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                    </div>
+                        <ul
+                            tabindex="-1"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow gap-3">
+                                <a><i class="fa-solid fa-circle-question"></i> FAQ</a>
+                                <a><i class="fa-solid fa-book-open"></i> Learn</a>
+                                <a><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                        </ul>
+                    </div>
+                    <a class="text-lg flex items-center gap-1">
+                        <span class="font-bold">English</span>
+                        <img src="./assets/logo.png" alt="logo">
+                        <span class="bangla font-semibold">জানালা</span>
+                    </a>
+            </div>
+            <div class="navbar-end hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 gap-5">
+                        <a class="btn btn-outline btn-primary btn-sm"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+                        <a class="btn btn-outline btn-primary btn-sm"><i class="fa-solid fa-book-open"></i> Learn</a>
+                        <a class="btn btn-outline btn-primary btn-sm"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                    </ul>
+            </div>
+        </nav>
+    </header>
 
+    <!-- Main Section -->
+    
 
     <script src="./script.js"></script>
 </body>
