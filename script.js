@@ -1,3 +1,17 @@
+// For Speaking
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; 
+  window.speechSynthesis.speak(utterance);
+}
+
+// Create little btn in modal
+const createElement = (arr) => {
+    const htmlElem = arr.map((elem) => `<button class="btn btn-soft btn-primary btn-sm">${elem}</button>`);
+    return htmlElem.join(" ");
+}
+
+// load all the lessons btn
 let loadLessons = () => {
   fetch("https://openapi.programming-hero.com/api/levels/all")
   .then((res) => res.json())
@@ -30,6 +44,7 @@ let loadWordDetails = (id) => {
     .then(dets => displayModalCards(dets.data));
 };
 
+
 let displayModalCards = (dets) => {
     let modalDets = document.getElementById('modal-dets');
     modalDets.innerHTML = `
@@ -46,19 +61,13 @@ let displayModalCards = (dets) => {
 
                 <div class="space-y-1">
                     <p class="bangla">সমার্থক শব্দ গুলো</p>
-                    <div>
-                        <button class="btn btn-soft btn-primary btn-sm">${dets.synonyms[0]}</button>
-                        <button class="btn btn-soft btn-primary btn-sm">${dets.synonyms[1]}</button>
-                        <button class="btn btn-soft btn-primary btn-sm">${dets.synonyms[2]}</button>
-                    </div>
+                    <div>${createElement(dets.synonyms)}</div>
                 </div>
     `
 
     let mainModal = document.getElementById('my_modal_5').showModal();
-
-
-
 }
+
 
 let displayVocab = (words) => {
     const wordContainer = document.getElementById('word-container');
@@ -87,7 +96,7 @@ let displayVocab = (words) => {
                 <div onclick="loadWordDetails(${word.id})" class="btn btn-soft btn-primary btn-sm ">
                     <i class="fa-solid fa-circle-info"></i>
                 </div>
-                <div class="btn btn-soft btn-primary btn-sm ">
+                <div onclick = "pronounceWord('${word.word}')" class="btn btn-soft btn-primary btn-sm ">
                     <i class="fa-solid fa-volume-high"></i>
                 </div>
             </div>
@@ -111,3 +120,30 @@ let displayLessons = (lessons) => {
 
 loadLessons();
 
+
+let searchValue = () => {
+    const input = document.getElementById('search-inp');
+    const searchBtn = document.getElementById('search-btn');
+
+    input.addEventListener("keydown", (dets) => {
+        if(dets.key === 'Enter') {
+         searchBtn.click();
+        }
+    });
+}
+
+searchValue();
+
+document.getElementById('search-btn').addEventListener("click", () => {
+    const input = document.getElementById('search-inp');
+    const inputValue = input.value.trim().toLowerCase();
+    
+    fetch("https://openapi.programming-hero.com/api/words/all")
+    .then(res => res.json())
+    .then(word => {
+        const allWords = word.data;
+        const filterWords = allWords.filter((word) => word.word.toLowerCase().includes(inputValue));
+        displayVocab(filterWords);
+    });
+    
+});
