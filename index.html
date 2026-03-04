@@ -64,54 +64,58 @@
     <!-- Main Section -->
     <main class="space-y-6">
         <!-- Hero-Section -->
-        <section class="md:px-10 flex items-center justify-center gap-14 mb-20">
+        <section class="px-5 md:px-10 flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-14 mb-20 text-center md:text-left">
             <!-- infos part -->
-            <div class="infos flex-1 space-y-4">
-                <h2 class="font-bold text-5xl">
+            <div class="infos flex-1 space-y-4 w-full">
+                <h2 class="font-bold text-4xl md:text-5xl">
                     <span class="text-[#00BCFF]">Enlish</span> is Easy!!
                 </h2>
-                <p class="bangla font-medium text-[#464649]">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
-                <div class="space-y-4">
-                    <input class="placeholder:text-sm w-58 block px-2 py-1 rounded-sm border-gray-300 border-[1.5px]" type="text" placeholder="Enter Your Name">
-                    <input class=" placeholder:text-sm w-58 block px-2 py-1 rounded-sm border-gray-300 border-[1.5px]" type="password" name="pass" id="pass" placeholder="Enter Your Password">
+                <p class="bangla font-medium text-[#464649] text-sm md:text-base max-w-xl mx-auto md:mx-0">
+                    আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                </p>
+                <div class="space-y-4 flex flex-col items-center md:items-start">
+                    <input class="placeholder:text-sm w-full max-w-xs block px-2 py-1 rounded-sm border-gray-300 border-[1.5px]" type="text" placeholder="Enter Your Name">
+                    <input class="placeholder:text-sm w-full max-w-xs block px-2 py-1 rounded-sm border-gray-300 border-[1.5px]" type="password" name="pass" id="pass" placeholder="Enter Your Password">
                 </div>
-                <button class="btn btn-primary">Get Started</button>
+                <button class="btn btn-primary w-full max-w-xs md:w-auto">Get Started</button>
             </div>
 
-            <div class="imgs flex-1">
-                <img src="./assets/hero-student.png" alt="">
+            <!-- Image section: Mobile-e width control kora hoyeche -->
+            <div class="imgs flex-1 w-full max-w-sm md:max-w-none">
+                <img class="w-full h-auto" src="./assets/hero-student.png" alt="">
             </div>
         </section>
 
         <!-- Learn Vocanularies Section -->
-        <section class="space-y-4">
-            <h2 class="font-bold text-[28px] text-center">
+        <section class="space-y-4 px-5">
+            <h2 class="font-bold text-[24px] md:text-[28px] text-center">
                 <span class="text-[#00BCFF]">Let's</span> Learn Vocabularies
             </h2>
 
-            <!-- Lessons -->
-            <div id="lessonsDiv" class="flex justify-center gap-3"></div>
+            <!-- Lessons: flex-wrap add kora hoyeche jate mobile-e button gulo screen-er baire na jay -->
+            <div id="lessonsDiv" class="flex flex-wrap justify-center gap-3"></div>
         </section>
 
         <!-- Search Section -->
-        <section class="flex justify-center ">
-            <div class="join">
-            <div>
-                <label class="input validator join-item">
-                <input id="search-inp" class="placeholder:text-sm" type="text" placeholder="Search Vocabularies..." required />
-                </label>
-            </div>
-                <button id="search-btn" class="btn btn-primary join-item">Enter</button>
+        <section class="flex justify-center my-10 px-5">
+            <div class="join w-full max-w-md">
+                <div class="flex-1">
+                    <label class="input validator join-item w-full">
+                        <input id="search-inp" class="placeholder:text-sm w-full" type="text" placeholder="Search Vocabularies..." required />
+                    </label>
+                </div>
+                <button id="search-btn" class="btn btn-primary join-item px-6">Enter</button>
             </div>
         </section>
 
         <!-- word-container -->
-        <section id="word-container" class="md:mx-10 bg-[#F8F8F8] grid md:grid-cols-3 grid-cols-2 p-14 rounded-sm space-x-4 space-y-4">
-            <div class="col-span-3  text-center space-y-2">
+        <section id="word-container" class="mx-5 md:mx-10 bg-[#F8F8F8] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-8 md:p-14 rounded-sm gap-4">
+            <div class="col-span-full text-center space-y-2">
                 <p class="bangla text-[#79716B] text-sm">আপনি এখনো কোন Lesson Select করেন নি</p>
-                <h2 class="text-2xl font-semibold">একটি Lesson Select করুন।</h2>
+                <h2 class="text-xl md:text-2xl font-semibold">একটি Lesson Select করুন।</h2>
             </div>
         </section>
+
 
         <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle rounded-xl">
         <div class="modal-box">
@@ -192,7 +196,6 @@
             </div>
         </div>
     </footer>
-
 
     <script src="./script.js"></script>
 </body>
