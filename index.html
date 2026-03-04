@@ -27,6 +27,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <!-- Custom Top Alert Box -->
+    <div id="error-alert" class="hidden fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md">
+        <div role="alert" class="alert alert-vertical sm:alert-horizontal shadow-lg border-[#00BCFF] bg-white">
+            <svg xmlns="http://www.w3.org" fill="none" viewBox="0 0 24 24" class="stroke-info h-6 w-6 shrink-0">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+                <h3 id="alert-title" class="font-bold text-sm">Attention!</h3>
+                <div id="alert-msg" class="text-xs">Message goes here</div>
+            </div>
+            <button onclick="document.getElementById('error-alert').classList.add('hidden')" class="btn btn-sm btn-ghost text-[#00BCFF]">Close</button>
+        </div>
+    </div>
+
     <!-- Header Section -->
     <header>
         <!-- Navbar Section -->
@@ -70,14 +84,17 @@
                 <h2 class="font-bold text-4xl md:text-5xl">
                     <span class="text-[#00BCFF]">Enlish</span> is Easy!!
                 </h2>
+
                 <p class="bangla font-medium text-[#464649] text-sm md:text-base max-w-xl mx-auto md:mx-0">
                     আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
                 </p>
+
                 <div class="space-y-4 flex flex-col items-center md:items-start">
-                    <input class="placeholder:text-sm w-full max-w-xs block px-2 py-1 rounded-sm border-gray-300 border-[1.5px]" type="text" placeholder="Enter Your Name">
-                    <input class="placeholder:text-sm w-full max-w-xs block px-2 py-1 rounded-sm border-gray-300 border-[1.5px]" type="password" name="pass" id="pass" placeholder="Enter Your Password">
+                    <input id="name-input" class="placeholder:text-sm w-full max-w-xs block px-2 py-1 rounded-sm border-gray-300 border-[1.5px]" type="text" placeholder="Enter Your Name">
+                    <input id="pass-input" class="placeholder:text-sm w-full max-w-xs block px-2 py-1 rounded-sm border-gray-300 border-[1.5px]" type="password" name="pass" id="pass" placeholder="Enter Your Password">
                 </div>
-                <button class="btn btn-primary w-full max-w-xs md:w-auto">Get Started</button>
+
+                <button id="start-btn" class="btn btn-primary w-full max-w-xs md:w-auto">Get Started</button>
             </div>
 
             <!-- Image section: Mobile-e width control kora hoyeche -->
@@ -175,7 +192,7 @@
     </main>
 
     <!-- Footer Section -->
-    <footer class="footer flex justify-between items-end px-10 py-20 bg-white text-base-content border-t-[1.5px] border-[#FCE8E8]">
+    <footer class="footer flex justify-between flex-wrap items-end px-10 py-20 bg-white text-base-content border-t-[1.5px] border-[#FCE8E8]">
         <!-- Left Side: Branding -->
         <div class="space-y-1">
             <h2 class="text-2xl  flex items-center">

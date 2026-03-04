@@ -1,3 +1,52 @@
+let inputValidation = () => {
+    const nameInput = document.getElementById('name-input');
+    const passInput = document.getElementById('pass-input');
+    const startBtn = document.getElementById('start-btn');
+    
+    const alertBox = document.getElementById('error-alert');
+    const alertMsg = document.getElementById('alert-msg');
+
+    const nameRegex = /^[a-zA-Z\s]{2,30}$/; 
+    const passRegex = /^.{8,}$/;
+
+    // 1. Button Click Logic
+    startBtn.addEventListener('click', () => {
+        const nameValue = nameInput.value.trim();
+        const passValue = passInput.value.trim();
+
+        if(!nameRegex.test(nameValue)) {
+            alertBox.classList.remove('hidden');
+            alertMsg.innerText = "Please Enter a Valid Name (2-30 letters)";
+            setTimeout(() => alertBox.classList.add('hidden'), 3000);
+            return;
+        }
+    
+        if(!passRegex.test(passValue)) {
+            alertBox.classList.remove('hidden');
+            alertMsg.innerText = "Password must be at least 8 characters";
+            setTimeout(() => alertBox.classList.add('hidden'), 3000);
+            return;
+        }
+
+        alertBox.classList.add('hidden');
+        alert("Success! Everything is valid.");
+    });
+
+    [nameInput, passInput].forEach(input => {
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); 
+                startBtn.click(); 
+            }
+        });
+    });
+};
+
+inputValidation();
+
+
+
+
 // For Speaking
 function pronounceWord(word) {
   const utterance = new SpeechSynthesisUtterance(word);
