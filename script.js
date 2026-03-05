@@ -9,10 +9,14 @@ let inputValidation = () => {
     const nameRegex = /^[a-zA-Z\s]{2,30}$/; 
     const passRegex = /^.{8,}$/;
 
+
     // 1. Button Click Logic
     startBtn.addEventListener('click', () => {
         const nameValue = nameInput.value.trim();
         const passValue = passInput.value.trim();
+
+        nameInput.value = "";
+        passInput.value = "";
 
         if(!nameRegex.test(nameValue)) {
             alertBox.classList.remove('hidden');
