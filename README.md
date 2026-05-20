@@ -45,13 +45,13 @@ English Janala is an educational web application designed to simplify vocabulary
 
 ```bash
 # Clone the repository
-git clone [https://github.com/HSBHasib/English-Janala.git](https://github.com/HSBHasib/English-Janala.git)
+git clone [ https://github.com/HSBHasib/PH-JS-English-Janala-PJ.git ]
 
 # Go into the project folder
 cd PH-JS-English-Janala-PJ
 
 # Run the project
-# Simply open the index.html file directly in your browser or run via Live Server extension in VS Code!
+Simply open the index.html file directly in your browser or run via Live Server extension in VS Code!
 ```
 
 ## Developer
